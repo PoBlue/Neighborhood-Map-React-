@@ -125,7 +125,6 @@ header {
 }
 
 #map {
-	top: 50px;
 	height: 100%;
 }
 
@@ -152,21 +151,4 @@ header {
 	display: block; 
 }
 
-@media screen and (min-width: 800px) {
-	#drawer {
-		left: 0px;
-	}
-
-	#map {
-		margin-left: 300px;
-	}
-
-	#drawer-toggle-label {
-		display: none;
-	}
-
-	header {
-		left: 250px;
-	}
-}
 
