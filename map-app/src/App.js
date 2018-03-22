@@ -16,6 +16,7 @@ class App extends Component {
       map: null,
       infoWindow: null,
       places: [],
+      query: '',
     }
   }
 
@@ -37,12 +38,12 @@ class App extends Component {
   }
 
   filterMarker = (query) => {
-    console.log(query)
     this.state.places.map((place) => {
       place.filterText = query;
       place.setMarker();
     })
 
+    this.setState({query});
   }
 
   toggleDrawer = () => {
@@ -56,8 +57,10 @@ class App extends Component {
       <MuiThemeProvider>
         <div className="App">
           <Head toggleDrawer={this.toggleDrawer}/>
-          <MapDrawer drawerIsOpen={this.state.drawerIsOpen} toggleDrawer={this.toggleDrawer}
+          <MapDrawer query={this.state.query}
+              drawerIsOpen={this.state.drawerIsOpen} toggleDrawer={this.toggleDrawer}
               filterMarker={this.filterMarker}
+              places={this.state.places}
           />
           <Map initMap={this.initMap}/>
         </div>

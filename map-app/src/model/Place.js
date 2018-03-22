@@ -9,6 +9,7 @@ export const Place = function(window, data, map, infoWindow, filterText){
 	this.wikiValue = data.search;
 	this.content = '<h3>' + self.title + '</h3>';
 	this.filterText = filterText;
+	this.infoWindow = infoWindow;
 
 	this.marker = new window.google.maps.Marker({
 		position: self.position,
@@ -17,7 +18,6 @@ export const Place = function(window, data, map, infoWindow, filterText){
 	});
 
 	window.google.maps.event.addListener(self.marker, 'click', function(){
-		self.toggleBounce();
 		self.showInfo();
 	});
 
@@ -31,8 +31,9 @@ export const Place = function(window, data, map, infoWindow, filterText){
 	});
 
 	this.showInfo = function() {
-		infoWindow.setContent(self.content);
-		infoWindow.open(map, self.marker);
+		self.toggleBounce();
+		this.infoWindow.setContent(self.content);
+		this.infoWindow.open(map, self.marker);
 	}	
 
 	this.visible = function(){
