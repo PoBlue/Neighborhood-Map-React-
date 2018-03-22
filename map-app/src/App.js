@@ -24,12 +24,25 @@ class App extends Component {
     let places = [];
 
     placesData.map((data) => {
-        const place = new Place(window, data, map, infoWindow, 'aes');        
+        const place = new Place(window, data, map, infoWindow, '');        
         place.setMarker(); 
         places.push(place);
     });
 
-    this.setState({map, infoWindow, places});
+    this.setState({
+      map, 
+      infoWindow, 
+      places,
+    });
+  }
+
+  filterMarker = (query) => {
+    console.log(query)
+    this.state.places.map((place) => {
+      place.filterText = query;
+      place.setMarker();
+    })
+
   }
 
   toggleDrawer = () => {
@@ -44,7 +57,7 @@ class App extends Component {
         <div className="App">
           <Head toggleDrawer={this.toggleDrawer}/>
           <MapDrawer drawerIsOpen={this.state.drawerIsOpen} toggleDrawer={this.toggleDrawer}
-            infoWindow={this.state.infoWindow} map={this.state.map}
+              filterMarker={this.filterMarker}
           />
           <Map initMap={this.initMap}/>
         </div>

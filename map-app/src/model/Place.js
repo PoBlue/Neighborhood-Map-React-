@@ -8,6 +8,7 @@ export const Place = function(window, data, map, infoWindow, filterText){
 	this.title = data.title;
 	this.wikiValue = data.search;
 	this.content = '<h3>' + self.title + '</h3>';
+	this.filterText = filterText;
 
 	this.marker = new window.google.maps.Marker({
 		position: self.position,
@@ -35,8 +36,8 @@ export const Place = function(window, data, map, infoWindow, filterText){
 	}	
 
 	this.visible = function(){
-		if (filterText.length > 0){
-			return (self.title.toLowerCase().indexOf(filterText.toLowerCase()) > -1);
+		if (this.filterText.length > 0){
+			return (self.title.toLowerCase().indexOf(this.filterText.toLowerCase()) > -1);
 		}
 		else{
 			return true;

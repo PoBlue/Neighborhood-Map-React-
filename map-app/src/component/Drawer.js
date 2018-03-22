@@ -12,7 +12,9 @@ export default class MapDrawer extends Component {
             <Drawer open={this.props.drawerIsOpen} docked={false}
                 onRequestChange={() => this.props.toggleDrawer()}>
                 <MenuItem>
-                    <input type="text" id="filterInput" placeholder="Search for names.."/>
+                    <input type="text" id="filterInput" placeholder="Search for names.."
+                        onChange={(e) => this.props.filterMarker(e.target.value)} 
+                    />
                 </MenuItem>
                 <MenuItem>
                     <ul id="filter" data-bind="foreach: filterList">
