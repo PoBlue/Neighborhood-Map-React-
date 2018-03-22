@@ -1,4 +1,4 @@
-const placesData = [
+export const placesData = [
 	{
 		position: {lat: 21.023418, lng: 105.8516438},
 		title: "Vietnamese Women's Museum",

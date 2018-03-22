@@ -12,12 +12,14 @@ class Map extends Component {
         loadJS('https://maps.googleapis.com/maps/api/js?key=AIzaSyCoxcb6Blia9PD7RWVuvsndj5R_Xzf2hCY&callback=initMap')
     }
 
-    initMap() {
+    initMap = () => {
         let mapDiv = document.getElementById("map");
         const map = new window.google.maps.Map(mapDiv, {
             center: initLocation,
             zoom: 13
         });
+        const infoWindow = new window.google.maps.InfoWindow();
+        this.props.initMap(map, infoWindow);
     }
 
     render() {
