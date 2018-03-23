@@ -34,6 +34,9 @@ function loadJS(src) {
     var script = window.document.createElement("script");
     script.src = src;
     script.async = true;
+    script.onerror = () => {
+        alert('can not load map, refresh it!')
+    }
     ref.parentNode.insertBefore(script, ref);
 }
 
