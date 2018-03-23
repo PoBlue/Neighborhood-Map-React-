@@ -7,9 +7,18 @@ fend final project
 ## How to run
 open the terminal and run follwing command
 
+### Development Mode (Not include service worker)
 1. `cd map-app`
 2. `npm install`
 3. `npm start`
+
+### Or Production (include service worker)
+1. `cd map-app`
+2. `npm install`
+3. `npm run build`
+4. `yarn global add serve`
+5. `serve -s build`
+
 
 ## Third Libarary
 - [material ui](http://www.material-ui.com/#/)
